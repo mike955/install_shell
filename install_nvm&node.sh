@@ -2,14 +2,15 @@
 
 set -ex
 
+NVM_VERSION=13
 NODE_VERSION=13
 # install nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash
 
-# cadd env
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
+# add env to path
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bash_profile
+echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.bash_profile
+source ~/.nvm/nvm.sh
 # test nvm 
 nvm ls
 
@@ -18,6 +19,7 @@ nvm install ${NODE_VERSION}
 
 # use node version
 nvm use ${NODE_VERSION}
+nvm alias default ${NODE_VERSION}
 
 # config registry
 npm config set registry https://registry.npm.taobao.org --global
