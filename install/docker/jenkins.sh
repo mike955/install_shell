@@ -12,5 +12,6 @@ chown -R 1000:1000 ${VOLUME_DIRECTORY}
 docker run --name jenkins \
 -p 8080:8080 -p 50000:50000 \
 -v ${VOLUME_DIRECTORY}:/var/jenkins_home \
+--restart always \
 -d jenkins/jenkins:${JENKINS_VERSION}
 
