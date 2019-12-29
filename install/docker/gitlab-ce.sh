@@ -15,3 +15,6 @@ docker run --detach \
   --volume ${VOLUME_DIRECTORY}/logs:/var/log/gitlab \
   --volume ${VOLUME_DIRECTORY}/data:/var/opt/gitlab \
   gitlab/gitlab-ce:${GITLAB_CE_VERSION}
+
+
+# modify /VOLUME_DIRECTORY/config/gitlab.rb external_url then restart gitlab
