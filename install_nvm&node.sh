@@ -26,6 +26,6 @@ npm config set registry https://registry.npm.taobao.org --global
 npm config set disturl https://npm.taobao.org/dist --global
 
 # test 
-node version
+node -v
 npm config get registry
 npm config get disturl
