@@ -2,7 +2,7 @@
 
 set -ex
 
-NVM_VERSION=13
+NVM_VERSION=0.35.2
 NODE_VERSION=13
 # install nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash
@@ -10,9 +10,10 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.s
 # add env to path
 echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bash_profile
 echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.bash_profile
+
 source ~/.nvm/nvm.sh
-# test nvm 
-nvm ls
+source ~/.nvm/bash_completion
+source ~/.bash_profile
 
 # install node
 nvm install ${NODE_VERSION}
