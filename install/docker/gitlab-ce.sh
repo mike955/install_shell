@@ -18,3 +18,4 @@ docker run --detach \
 
 
 # modify /VOLUME_DIRECTORY/config/gitlab.rb external_url then restart gitlab
+# modify /VOLUME_DIRECTORY/config/gitlab.rb gitlab_shell_ssh_port then restart gitlab
