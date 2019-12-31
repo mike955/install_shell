@@ -3,10 +3,9 @@
 set -e
 
 JENKINS_VERSION=2.204
-VOLUME_DIRECTORY=/mnt/dockerVolumn/jenkins
 
-# modifuy volumn permissions
-chown -R 1000:1000 ${VOLUME_DIRECTORY}
+# this direcoty must be not exist, or will generate some privilege wrong,jenkins will create that
+VOLUME_DIRECTORY=/mnt/dockerVolumn/jenkins
 
 # install
 docker run --name jenkins \
@@ -14,4 +13,3 @@ docker run --name jenkins \
 -v ${VOLUME_DIRECTORY}:/var/jenkins_home \
 --restart always \
 -d jenkins/jenkins:${JENKINS_VERSION}
-
